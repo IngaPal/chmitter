@@ -23,14 +23,21 @@ function App() {
     setUser(prevState => ({...prevState, name: name || prevState.name}))
   }
 
+  const updateStats = (statType, isIncrement) => {
+    setStats(prevStats => ({
+      ...prevStats,
+      [statType]: isIncrement 
+        ? prevStats[statType] + 1 
+        : Math.max(0, prevStats[statType] - 1)
+    }))
+  }
 
   return (
     <div className='app'>
-      <TwitterContext.Provider value={{user, stats, changeAvatar, changeName}}>
+      <TwitterContext.Provider value={{user, stats, changeAvatar, changeName, updateStats}}>
         <Navigation />
         <Body />
       </TwitterContext.Provider>
-      
     </div>
   )
 }

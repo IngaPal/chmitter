@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+
 export const TwitterContext = createContext({
     user: {
         name: 'Monster',
@@ -8,10 +9,7 @@ export const TwitterContext = createContext({
         followers: 0,
         following: 0
     },
-    changeAvatar: function(url){
-        console.log(url);
-    },
-    changeName: function(name){
-        console.log(name);
-    },
+    changeAvatar: () => {},
+    changeName: () => {},
+    updateStats: () => {}
 });
